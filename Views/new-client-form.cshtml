@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Happy Heads Hair Salon</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Add New Client</h3>
+        <form action="/client/add" method="post">
+          <label for="clientName">Client name:</label>
+          <input type="text" name="clientName">
+          <label for="clientStylistId">Client's stylist:</label>
+          <select name="clientStylistId">
+            @foreach(var stylist in Model)
+            {
+              <option value="@stylist.GetId()">@stylist.GetName()</option>
+            }
+          </select>
+          <button class="btn btn-primary" type="submit">Add Client</button>
+        </form>
+        <h5><a href="/">Home</a>
+      </div>
+    </div>
+  </div>

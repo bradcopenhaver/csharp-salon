@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Happy Heads Hair Salon</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>@Model.GetName()</h3>
+        <h4>Client List</h4>
+        <ul>
+        @foreach(var client in Model.FindClients())
+        {
+          <li><a href="/client/@client.GetId()">
+          @client.GetName()</a></li>
+        }
+        </ul>
+        <h5><a href="/client/add/@Model.GetId()">Add new client</a></h5>
+        <h5><a href="/">Home</a>
+      </div>
+    </div>
+  </div>
