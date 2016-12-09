@@ -4,5 +4,31 @@
 }
 
   <div class="container">
-
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Happy Heads Hair Salon</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        @if(Model.Count > 0)
+        {
+          <h3>Current Stylists</h3>
+          <ul>
+          @foreach(var stylist in Model)
+          {
+            <li><a href="/stylist/@stylist.GetId()">
+            </hgroup>@stylist.GetName()</a></li>
+          }
+          </ul>
+          <h5><a href="/stylist/add">Add new stylist</a></h5>
+          <h5><a href="/client/add">Add new client</a></h5>
+        }
+        else
+        {
+          <h3>No Current Stylists</h3>
+          <h5><a href="/stylist/add">Add new stylist</a></h5>
+        }
+      </div>
+    </div>
   </div>

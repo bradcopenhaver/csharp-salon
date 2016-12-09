@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Happy Heads Hair Salon</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Add New Stylist</h3>
+        <form action="/stylist/add" method="post">
+          <label for="stylistName">Stylist name:</label>
+          <input type="text" name="stylistName">
+          <button class="btn btn-primary" type="submit">Add Stylist</button>
+        </form>
+      </div>
+    </div>
+  </div>
