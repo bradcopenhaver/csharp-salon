@@ -27,10 +27,22 @@ namespace  HairSalon
     [Fact]
     public void Test_EqualOverride_True()
     {
+      //Arrange and Act
       Stylist firstStylist = new Stylist("Grace");
       Stylist secondStylist = new Stylist("Grace");
-
+      //Assert
       Assert.Equal(firstStylist,secondStylist);
+    }
+    [Fact]
+    public void Save_SavesStylisToDatabase_true()
+    {
+      //Arrange
+      Stylist newStylist = new Stylist("Grace");
+      //Act
+      newStylist.Save();
+      List<Stylist> allStylists = Stylist.GetAll();
+      //Assert
+      Assert.Equal(newStylist, allStylists[0]);
     }
   }
 }
