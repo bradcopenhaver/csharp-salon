@@ -67,9 +67,22 @@ namespace  HairSalon
       Client expectedResult = new Client(newClient.GetName(), newClient.GetStylistId(), newClient.GetId());
 
       //Assert
-      Console.WriteLine(expectedResult.GetName()+" "+expectedResult.GetStylistId()+" "+expectedResult.GetId());
-      Console.WriteLine(foundClient.GetName()+" "+foundClient.GetStylistId()+" "+foundClient.GetId());
       Assert.Equal(expectedResult, foundClient);
+    }
+    [Fact]
+    public void Delete_DeletesClienFromDB()
+    {
+      //Arrange
+      Client newClient1 = new Client("name1", 1);
+      Client newClient2 = new Client("name2", 2);
+      newClient1.Save();
+      newClient2.Save();
+      //Act
+      newClient1.Delete();
+      List<Client> result = Client.GetAll();
+      List<Client> expectedResult = new List<Client> {newClient2};
+      //Assert
+      Assert.Equal(expectedResult, result);
     }
   }
 }
