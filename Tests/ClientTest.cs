@@ -55,5 +55,21 @@ namespace  HairSalon
       //Assert
       Assert.Equal(newClient, foundClient);
     }
+    [Fact]
+    public void Edit_UpdatesValues_true()
+    {
+      //Arrange
+      Client newClient = new Client("client1", 2);
+      newClient.Save();
+      //Act
+      newClient.Edit("Cliff", 1);
+      Client foundClient = Client.Find(newClient.GetId());
+      Client expectedResult = new Client(newClient.GetName(), newClient.GetStylistId(), newClient.GetId());
+
+      //Assert
+      Console.WriteLine(expectedResult.GetName()+" "+expectedResult.GetStylistId()+" "+expectedResult.GetId());
+      Console.WriteLine(foundClient.GetName()+" "+foundClient.GetStylistId()+" "+foundClient.GetId());
+      Assert.Equal(expectedResult, foundClient);
+    }
   }
 }

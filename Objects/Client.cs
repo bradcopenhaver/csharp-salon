@@ -140,5 +140,37 @@ namespace HairSalon.Objects
       }
       return foundClient;
     }
+    public void Edit(string newName, int newStylistId)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("UPDATE clients SET name = @NewName, stylist_id = @NewStylistId OUTPUT INSERTED.name, INSERTED.stylist_id WHERE id = @ClientId;", conn);
+
+      SqlParameter[] insertParameters = new SqlParameter[]
+      {
+        new SqlParameter("@NewName", newName),
+        new SqlParameter("@NewStylistId", newStylistId),
+        new SqlParameter("@ClientId", this.GetId())
+      };
+
+      cmd.Parameters.AddRange(insertParameters);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while (rdr.Read())
+      {
+        this._name = rdr.GetString(0);
+        this._stylist_id = rdr.GetInt32(1);
+      }
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+    }
   }
 }
