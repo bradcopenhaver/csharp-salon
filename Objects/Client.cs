@@ -80,5 +80,33 @@ namespace HairSalon.Objects
       }
       return allClients;
     }
+    public void Save()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("INSERT INTO clients (name, stylist_id) OUTPUT INSERTED.id VALUES (@name, @stylist_id);", conn);
+
+      SqlParameter nameParameter = new SqlParameter("@name", this.GetName());
+      SqlParameter stylistIdParameter = new SqlParameter("@stylist_id", this.GetStylistId());
+
+      cmd.Parameters.Add(nameParameter);
+      cmd.Parameters.Add(stylistIdParameter);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while (rdr.Read())
+      {
+        this._id = rdr.GetInt32(0);
+      }
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+    }
   }
 }

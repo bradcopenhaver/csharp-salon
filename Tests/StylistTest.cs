@@ -37,7 +37,7 @@ namespace  HairSalon
     public void Save_SavesStylisToDatabase_true()
     {
       //Arrange
-      Stylist newStylist = new Stylist("Grace");
+      Stylist newStylist = new Stylist("Francesca");
       //Act
       newStylist.Save();
       List<Stylist> allStylists = Stylist.GetAll();
