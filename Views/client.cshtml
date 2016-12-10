@@ -13,11 +13,13 @@
       <div class="col-md-12">
         <h3>Client @Model.GetName()</h3>
         <h4>Assigned to stylist @Model.GetStylistName()</h4>
+        <hr>
+        <h5><a href="/client/edit/@Model.GetId()">Edit client details</a></h5>
         <form action="/client/delete/@Model.GetId()" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="btn btn-danger" type="submit">Delete this client</button>
         </form>
-        <h5><a href="/client/edit/@Model.GetId()">Edit client details</a></h5>
+        <hr>
         <h5><a href="/stylist/@Model.GetStylistId()">Back to stylist @Model.GetStylistName()</h5>
         <h5><a href="/">Home</a>
       </div>

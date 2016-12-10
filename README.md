@@ -38,34 +38,34 @@ _This program will..._
 2. From the command prompt, run '>SqlLocalDb.exe c MSSQLLocalDB -s' to create an instance of LocalDB.
 3. Run the command '>sqlcmd -S "(localdb)\\MSSQLLocalDB"' and run the following SQL commands to create the local database and tables:
 
->CREATE DATABASE hair_salon
-GO
-USE [hair_salon]
-GO
-CREATE TABLE stylists(
-	id INT IDENTITY(1,1),
-	name VARCHAR(255)
-)
-GO
-CREATE TABLE clients(
-	id INT IDENTITY(1,1),
-	name VARCHAR(255),
-	stylist_id INT
-)
-GO
-
+        >CREATE DATABASE hair_salon
+        >GO
+        >USE hair_salon
+        >GO
+        >CREATE TABLE stylists(
+	    > id INT IDENTITY(1,1),
+        > name VARCHAR(255)
+        >)
+        >GO
+        >CREATE TABLE clients(
+        >	id INT IDENTITY(1,1),
+        >	name VARCHAR(255),
+        >	stylist_id INT
+        >)
+        >GO
 4. Navigate to the repository in terminal and run the command >dnu restore
 5. In the same location, create a local server by running the command >dnx kestrel
 6. Open a web browser and navigate to localhost:5004 to view the app.
 
 ## Known Bugs
 
-
+None yet.
 
 ## Possible future version features
 
-Add more properties to Stylist and Client. 
+Add more properties to Stylist and Client.
 Reassign a client to a different stylist.
+Two column homepage with lists on one side and details on the other.
 
 ## Support and contact details
 

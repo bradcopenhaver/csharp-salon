@@ -14,10 +14,13 @@
         <h3>Edit Stylist @Model.GetName()</h3>
         <form action="/stylist/edit/@Model.GetId()" method="post">
           <input type="hidden" name="_method" value="PATCH">
-          <label for="stylistName">Stylist name:</label>
-          <input type="text" name="stylistName" placeholder="@Model.GetName()">
+          <div class="form-group">
+            <label for="stylistName">Stylist name:</label>
+            <input type="text" name="stylistName" placeholder="@Model.GetName()">
+          </div>
           <button class="btn btn-primary" type="submit">Edit Stylist</button>
         </form>
+        <hr>
         <h5><a href="/">Home</a>
       </div>
     </div>

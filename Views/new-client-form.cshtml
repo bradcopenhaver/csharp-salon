@@ -13,17 +13,22 @@
       <div class="col-md-12">
         <h3>Add New Client</h3>
         <form action="/client/add" method="post">
-          <label for="clientName">Client name:</label>
-          <input type="text" name="clientName">
-          <label for="clientStylistId">Client's stylist:</label>
-          <select name="clientStylistId">
-            @foreach(var stylist in Model)
-            {
-              <option value="@stylist.GetId()">@stylist.GetName()</option>
-            }
-          </select>
+          <div class="form-group">
+            <label for="clientName">Client name:</label>
+            <input type="text" name="clientName">
+          </div>
+          <div class="form-group">
+            <label for="clientStylistId">Client's stylist:</label>
+            <select name="clientStylistId">
+              @foreach(var stylist in Model)
+              {
+                <option value="@stylist.GetId()">@stylist.GetName()</option>
+              }
+            </select>
+          </div>
           <button class="btn btn-primary" type="submit">Add Client</button>
         </form>
+        <hr>
         <h5><a href="/">Home</a>
       </div>
     </div>

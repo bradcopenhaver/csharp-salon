@@ -20,12 +20,14 @@
           @client.GetName()</a></li>
         }
         </ul>
+        <hr>
+        <h5><a href="/stylist/edit/@Model.GetId()">Edit this stylist</a></h5>
         <form action="/stylist/delete/@Model.GetId()" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="btn btn-danger" type="submit">Delete this stylist and assigned clients</button>
         </form>
+        <hr>
         <h5><a href="/client/add/">Add new client</a></h5>
-        <h5><a href="/stylist/edit/@Model.GetId()">Edit this stylist</a></h5>
         <h5><a href="/">Home</a>
       </div>
     </div>
