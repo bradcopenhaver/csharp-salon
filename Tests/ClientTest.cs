@@ -84,5 +84,19 @@ namespace  HairSalon
       //Assert
       Assert.Equal(expectedResult, result);
     }
+    [Fact]
+    public void GetStylistName_ReturnsStylistName_true()
+    {
+      //Arrange
+      Stylist newStylist = new Stylist("Frankie");
+      newStylist.Save();
+      Client newClient = new Client("Frances", newStylist.GetId());
+      newClient.Save();
+      string expectedResult = newStylist.GetName();
+      //Act
+      string result = newClient.GetStylistName();
+      //Assert
+      Assert.Equal(expectedResult, result);
+    }
   }
 }
