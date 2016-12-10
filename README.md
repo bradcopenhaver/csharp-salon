@@ -64,7 +64,8 @@ GO
 
 ## Possible future version features
 
-
+Add more properties to Stylist and Client. 
+Reassign a client to a different stylist.
 
 ## Support and contact details
 

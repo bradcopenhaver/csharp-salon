@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Happy Heads Hair Salon</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Edit Client @Model.GetName()</h3>
+        <form action="/client/edit/@Model.GetId()" method="post">
+          <input type="hidden" name="_method" value="PATCH">
+          <label for="clientName">Client name:</label>
+          <input type="text" name="clientName" placeholder="@Model.GetName()">
+          <button class="btn btn-primary" type="submit">Edit Client</button>
+        </form>
+        <h5><a href="/">Home</a>
+      </div>
+    </div>
+  </div>

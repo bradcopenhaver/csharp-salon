@@ -188,5 +188,32 @@ namespace HairSalon.Objects
         conn.Close();
       }
     }
+    public string GetStylistName()
+    {
+      string stylistName = "";
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT name FROM stylists WHERE id = @StylistId;", conn);
+
+      SqlParameter stylistIdParameter = new SqlParameter("@StylistId", this.GetStylistId());
+      cmd.Parameters.Add(stylistIdParameter);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        stylistName=rdr.GetString(0);
+      }
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+      return stylistName;
+    }
   }
 }

@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h3>@Model.GetName()</h3>
+        <h3>Stylist @Model.GetName()</h3>
         <h4>Client List</h4>
         <ul>
         @foreach(var client in Model.FindClients())
@@ -20,7 +20,12 @@
           @client.GetName()</a></li>
         }
         </ul>
-        <h5><a href="/client/add/@Model.GetId()">Add new client</a></h5>
+        <form action="/delete/stylist/@Model.GetId()">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn btn-danger" type="submit">Delete this stylist and assigned clients</button>
+        </form>
+        <h5><a href="/client/add/">Add new client</a></h5>
+        <h5><a href="/stylist/edit/@Model.GetId()">Edit this stylist</a></h5>
         <h5><a href="/">Home</a>
       </div>
     </div>
