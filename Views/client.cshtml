@@ -13,7 +13,7 @@
       <div class="col-md-12">
         <h3>Client @Model.GetName()</h3>
         <h4>Assigned to stylist @Model.GetStylistName()</h4>
-        <form action="/delete/client/@Model.GetId()">
+        <form action="/client/delete/@Model.GetId()" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="btn btn-danger" type="submit">Delete this client</button>
         </form>

@@ -20,7 +20,7 @@
           @client.GetName()</a></li>
         }
         </ul>
-        <form action="/delete/stylist/@Model.GetId()">
+        <form action="/stylist/delete/@Model.GetId()" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button class="btn btn-danger" type="submit">Delete this stylist and assigned clients</button>
         </form>
